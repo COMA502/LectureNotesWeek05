@@ -21,6 +21,7 @@ public class ArrayOfFoodAndPrices {
         String order = input.next();
 
         for(int i = 0; i < foods.length; i++) {
+//        for(String food : foods) {// foreach/enhanced loop doesn't work because we need the index of the price
             if(foods[i].equals(order)) {
                 System.out.println(String.format("$%.2f", prices[i]));
             }
