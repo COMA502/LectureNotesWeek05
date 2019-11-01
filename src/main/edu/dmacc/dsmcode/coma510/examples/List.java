@@ -15,6 +15,9 @@ public class List {
         names.add("Greg");
         names.add("Greg");
         names.add("Eric");
+        names.add("Amber");
+        names.add("Stanley");
+        names.add("Dan");
 
         System.out.println(names);
         System.out.println("First name is " + names.get(0));
@@ -32,9 +35,13 @@ public class List {
          * Looping lists
          */
 //        for(int i = 0; i < names.size(); i++) {
+//            names.remove(i);//Works, but also reduces the size
+//                              //so will get IndexOutOfBounds on
+//                              //the next loop
 //            System.out.println(names.get(i));
 //        }
 //        for(String name : names) {
+////            names.remove("Greg");//ConcurrentModificationException
 //            System.out.println(name);
 //        }
 
@@ -42,24 +49,11 @@ public class List {
         while(iterator.hasNext()) {
             String name = iterator.next();
             if(name.equals("Greg")) {
+//                names.remove("Greg");//ConcurrentModificationException
                 iterator.remove();
             }
 //            System.out.println(name);
         }
         System.out.println(names);
-
-        ArrayList<String> names2 = new ArrayList<>();
-        names2.add("a");
-        names2.add("a");
-        names2.add("a");
-        names2.add("a");
-        names2.add("a");
-        names2.add("a");
-        names2.add("a");
-        names2.add("a");
-        for(String str : names2) {
-            names2.remove(0);
-        }
-        System.out.println(names2);
     }
 }
